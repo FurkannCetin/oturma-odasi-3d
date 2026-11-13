@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#e9e6e1" />
+    <title>Oturma Odası · 3D Koltuk Planı</title>
+    <script type="module" crossorigin src="./assets/index-Br95tS--.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CKGzeSGA.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="viewport"></div>
+
+      <header class="topbar">
+        <div class="chip title"><span id="roomName">Oturma Odası</span></div>
+        <div class="modes" role="tablist">
+          <button data-mode="orbit" class="active">3D</button>
+          <button data-mode="top">Üstten</button>
+          <button data-mode="walk">Gez</button>
+          <button data-mode="edit">Düzenle</button>
+        </div>
+        <button id="menuBtn" class="icon-btn" aria-label="Menü">☰</button>
+      </header>
+
+      <div class="tools">
+        <button id="allDistBtn" class="chip tool" aria-pressed="false">↔ Tüm mesafeler</button>
+        <button id="rulerBtn" class="chip tool" aria-pressed="false">📏 Cetvel</button>
+      </div>
+      <div id="hint" class="chip hint"></div>
+      <button id="warnChip" class="chip warn-chip" hidden></button>
+
+      <aside id="editor" hidden></aside>
+
+      <aside id="panel" class="closed">
+        <div class="panel-head">
+          <b>Oda ve eşyalar</b>
+          <button id="panelClose" class="icon-btn small" aria-label="Kapat">✕</button>
+        </div>
+        <div id="roomInfo" class="muted"></div>
+        <div id="conflictInfo" class="warn"></div>
+        <ul id="itemList"></ul>
+        <label class="toggle"><input type="checkbox" id="measToggle" checked /> Seçilen eşyanın mesafelerini göster</label>
+        <label class="toggle"><input type="checkbox" id="qualityToggle" /> Gerçekçi ışık ve gölge (yavaş cihazda kapat)</label>
+        <div id="savedNote" class="muted small" hidden>Bu cihazda değiştirilmiş plan gösteriliyor.</div>
+        <div class="btn-col">
+          <button id="shareBtn" class="btn primary">Bu planın bağlantısını paylaş</button>
+          <button id="resetBtn" class="btn">Varsayılan plana dön</button>
+        </div>
+      </aside>
+
+      <div id="sel" class="sheet" hidden>
+        <div class="sel-head">
+          <div>
+            <b id="selName"></b>
+            <div id="selDims" class="muted"></div>
+          </div>
+          <button id="selClose" class="icon-btn small" aria-label="Seçimi kaldır">✕</button>
+        </div>
+        <div id="selWarn" class="warn"></div>
+        <div id="selFixed" class="muted" hidden>Sabit eleman. Yerini değiştirmek için Düzenle moduna geç.</div>
+        <div id="selEdit"></div>
+        <div class="row" id="rotRow">
+          <button class="btn" data-rot="-90">⟲ 90°</button>
+          <button class="btn" data-rot="-15">⟲ 15°</button>
+          <button class="btn" data-rot="15">15° ⟳</button>
+          <button class="btn" data-rot="90">90° ⟳</button>
+        </div>
+        <div class="row" id="actRow">
+          <button id="selHide" class="btn">Odadan çıkar</button>
+          <button id="selDelete" class="btn danger" hidden>Sil</button>
+        </div>
+      </div>
+
+      <div id="joystick"><div class="knob"></div></div>
+      <button id="standBtn" class="btn primary" hidden>Ayağa kalk</button>
+
+      <div id="dialog" hidden>
+        <div class="dlg">
+          <b id="dlgTitle"></b>
+          <p id="dlgText" class="muted"></p>
+          <textarea id="dlgArea" hidden spellcheck="false"></textarea>
+          <div id="dlgErr" class="warn"></div>
+          <div class="row" id="dlgBtns"></div>
+        </div>
+      </div>
+      <div id="toast"></div>
+    </div>
+  </body>
+</html>
